@@ -9,6 +9,7 @@ namespace BusinessLayer.Interface
     public interface INotesBL
     {
         public NotesEntity AddNotes(NotesModel notesModel, long UserID);
+        public NotesEntity UpdateNotes(NotesModel notesModel, long NoteID);
 
     }
 }
