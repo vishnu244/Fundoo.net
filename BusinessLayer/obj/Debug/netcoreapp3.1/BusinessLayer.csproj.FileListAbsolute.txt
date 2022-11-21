@@ -13,13 +13,6 @@ C:\Users\Admin\Desktop\dotnet backend\BusinessLayer\obj\Debug\netcoreapp3.1\Busi
 C:\Users\Admin\Desktop\dotnet backend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
 C:\Users\Admin\Desktop\dotnet backend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
 C:\Users\Admin\Desktop\dotnet backend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
-C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\ikvm\win7-x64\bin\ikvm.properties
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\ikvm\win7-x64\lib\calendars.properties
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\ikvm\win7-x64\lib\cmm\CIEXYZ.pf
@@ -121,4 +114,11 @@ C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\Commo
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.dll
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\bin\Debug\netcoreapp3.1\CommonLayer.pdb
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\Admin\Desktop\FundooBackend\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
