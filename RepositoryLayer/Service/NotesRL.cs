@@ -61,8 +61,7 @@ namespace RepositoryLayer.Service
         {
             try
             {
-/*                var notesEntity = fundooContext.NotesTable.FirstOrDefault(note => note.UserId == UserID && note.NoteID == NoteID);
-*/                NotesEntity notesEntity = fundooContext.NotesTable.Where(X => X.NoteID == NoteID).FirstOrDefault();
+                NotesEntity notesEntity = fundooContext.NotesTable.Where(X => X.NoteID == NoteID).FirstOrDefault();
                 if (notesEntity != null)
                 {
                     notesEntity.Title = notesModel.Title;
