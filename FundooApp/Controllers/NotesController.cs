@@ -92,5 +92,41 @@ namespace FundooApp.Controllers
 
         }
 
+
+        [Authorize]
+        [HttpPost("DeleteNotes")]
+        public IActionResult DeleteNotes(long NoteID)
+        {
+            try
+            {
+                /*var result = iNotesBL.DeleteNotes(NoteID);*/
+                if (iNotesBL.DeleteNotes(NoteID))
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        message = "Notes Deleted Successfully",
+                        
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "No Notes found to delete.",
+
+                    });
+                }
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+
+        }
+
     }
 }

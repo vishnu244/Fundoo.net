@@ -93,5 +93,31 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
+
+
+        public bool DeleteNotes(long NoteID)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.Where(x => x.NoteID == NoteID);
+
+/*                fundooContext.Remove(result);
+*/                if (result != null)
+                {
+                    fundooContext.Remove(result);
+
+                }
+                int DeleteNotes = fundooContext.SaveChanges();
+                if (DeleteNotes > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
