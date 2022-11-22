@@ -168,8 +168,7 @@ namespace FundooApp.Controllers
         {
             try
             {
-/*                long UserId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserID").Value);
-*/                var result = iNotesBL.PinNotes(NoteID);
+                var result = iNotesBL.PinNotes(NoteID);
                 if (result != null)
                 {
                     return this.Ok(new
@@ -185,6 +184,38 @@ namespace FundooApp.Controllers
                     {
                         success = false,
                         message = "Notes Pinned.",
+
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [Authorize]
+        [HttpPost("Archive")]
+        public IActionResult ArchiveNotes(long NoteID)
+        {
+            try
+            {
+                var result = iNotesBL.ArchiveNotes(NoteID);
+                if (result != null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Notes UnArchived Successfully"
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "Notes Archived Successfully.",
 
                     });
                 }

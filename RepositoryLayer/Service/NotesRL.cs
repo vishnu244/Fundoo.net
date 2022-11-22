@@ -150,5 +150,28 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
+
+
+        public NotesEntity ArchiveNotes(long NoteID)
+        {
+            try
+            {
+                NotesEntity result = fundooContext.NotesTable.FirstOrDefault(x => x.NoteID == NoteID);
+                if (result.Archive == true)
+                {
+                    result.Archive = false;
+                    this.fundooContext.SaveChanges();
+                    return result;
+                }
+                result.Archive = true;
+                this.fundooContext.SaveChanges();
+                return null;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
