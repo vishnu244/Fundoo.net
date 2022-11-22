@@ -21,7 +21,7 @@ namespace FundooApp.Controllers
         }
 
         [Authorize]
-        [HttpPost("Addnotes")]
+        [HttpPost("Add")]
         public IActionResult AddNotes(NotesModel notesModel)
         {
             try
@@ -58,7 +58,7 @@ namespace FundooApp.Controllers
 
 
         [Authorize]
-        [HttpPost("UpdateNotes")]
+        [HttpPost("Update")]
         public IActionResult UpdateNotes(NotesModel notesModel, long NoteID)
         {
             try
@@ -94,7 +94,7 @@ namespace FundooApp.Controllers
 
 
         [Authorize]
-        [HttpPost("DeleteNotes")]
+        [HttpPost("Delete")]
         public IActionResult DeleteNotes(long NoteID)
         {
             try
@@ -126,6 +126,40 @@ namespace FundooApp.Controllers
                 throw;
             }
 
+        }
+
+        [Authorize]
+        [HttpGet("Retrive")]
+        public IActionResult DisplayNotes(long UserID)
+        {
+            try
+            {
+                long UserId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserID").Value);
+                var result = iNotesBL.DisplayNotes(UserID);
+                if (result != null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+/*                        message = "Notes Deleted Successfully",
+*/                        data = result
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "No Notes found to display.",
+
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }
