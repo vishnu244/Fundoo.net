@@ -174,7 +174,7 @@ namespace FundooApp.Controllers
                     return this.Ok(new
                     {
                         success = true,
-                        data = "Notes Pinned"
+                        data = "Notes UnPinned"
                     });
 
                 }
@@ -249,6 +249,39 @@ namespace FundooApp.Controllers
                     {
                         success = false,
                         message = "Notes moved to Trash.",
+
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        [Authorize]
+        [HttpPost("Image")]
+        public IActionResult Image(long UserID, long NoteID, IFormFile image)
+        {
+            try
+            {
+                var result = iNotesBL.Image(UserID, NoteID, image);
+                if (result != null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Image Uploaded "
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "Image is not Uploaded.",
 
                     });
                 }

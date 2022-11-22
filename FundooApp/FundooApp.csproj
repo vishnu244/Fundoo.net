@@ -19,5 +19,9 @@
     <ProjectReference Include="..\RepositoryLayer\RepositoryLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FundooImage\" />
+  </ItemGroup>
+
 
 </Project>
