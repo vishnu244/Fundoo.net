@@ -99,19 +99,15 @@ namespace RepositoryLayer.Service
         {
             try
             {
-                var result = fundooContext.NotesTable.Where(x => x.NoteID == NoteID);
+                var result = fundooContext.NotesTable.Where(x => x.NoteID == NoteID).FirstOrDefault();
 
-/*                fundooContext.Remove(result);
-*/                if (result != null)
+                if (result != null)
                 {
                     fundooContext.Remove(result);
-
-                }
-                int DeleteNotes = fundooContext.SaveChanges();
-                if (DeleteNotes > 0)
-                {
+                    fundooContext.SaveChanges();
                     return true;
                 }
+                
                 return false;
             }
             catch (Exception)
@@ -119,5 +115,7 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
+
+
     }
 }
