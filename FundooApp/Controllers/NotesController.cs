@@ -141,8 +141,7 @@ namespace FundooApp.Controllers
                     return this.Ok(new
                     {
                         success = true,
-/*                        message = "Notes Deleted Successfully",
-*/                        data = result
+                        data = result
                     });
 
                 }
@@ -152,6 +151,40 @@ namespace FundooApp.Controllers
                     {
                         success = false,
                         message = "No Notes found to display.",
+
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        [Authorize]
+        [HttpPost("Pin")]
+        public IActionResult PinNotes(long NoteID)
+        {
+            try
+            {
+/*                long UserId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserID").Value);
+*/                var result = iNotesBL.PinNotes(NoteID);
+                if (result != null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Notes Pinned"
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "Notes Pinned.",
 
                     });
                 }

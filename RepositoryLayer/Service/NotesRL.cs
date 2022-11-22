@@ -120,19 +120,35 @@ namespace RepositoryLayer.Service
         {
             try
             {
-                var result = fundooContext.NotesTable.Where(x => x.UserId == UserID);
-                
+                var result = fundooContext.NotesTable.Where(x => x.UserId == UserID);             
                 return result;
-
- 
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
+        public NotesEntity PinNotes(long NoteID)
+        {
+            try
+            {
+                NotesEntity result = fundooContext.NotesTable.FirstOrDefault(x => x.NoteID == NoteID);
+                if (result.Pin == true)
+                {
+                    result.Pin = false;
+                    this.fundooContext.SaveChanges();
+                    return result;
+                }
+                result.Pin = true;
+                this.fundooContext.SaveChanges();
+                return null;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
