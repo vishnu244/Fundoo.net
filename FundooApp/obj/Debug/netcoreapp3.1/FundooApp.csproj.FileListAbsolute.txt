@@ -257,3 +257,4 @@ C:\Users\Admin\Desktop\FundooBackend\FundooApp\obj\Debug\netcoreapp3.1\FundooApp
 C:\Users\Admin\Desktop\FundooBackend\FundooApp\obj\Debug\netcoreapp3.1\FundooApp.dll
 C:\Users\Admin\Desktop\FundooBackend\FundooApp\obj\Debug\netcoreapp3.1\FundooApp.pdb
 C:\Users\Admin\Desktop\FundooBackend\FundooApp\obj\Debug\netcoreapp3.1\FundooApp.genruntimeconfig.cache
+C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
