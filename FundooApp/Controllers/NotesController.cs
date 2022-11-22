@@ -226,5 +226,38 @@ namespace FundooApp.Controllers
             }
         }
 
+
+        [Authorize]
+        [HttpPost("Trash")]
+        public IActionResult TrashNotes(long NoteID)
+        {
+            try
+            {
+                var result = iNotesBL.TrashNotes(NoteID);
+                if (result != null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Notes Restored from Trash"
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "Notes moved to Trash.",
+
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

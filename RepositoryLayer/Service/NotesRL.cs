@@ -173,5 +173,28 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
+
+
+        public NotesEntity TrashNotes(long NoteID)
+        {
+            try
+            {
+                NotesEntity result = fundooContext.NotesTable.FirstOrDefault(x => x.NoteID == NoteID);
+                if (result.Trash == true)
+                {
+                    result.Trash = false;
+                    this.fundooContext.SaveChanges();
+                    return result;
+                }
+                result.Trash = true;
+                this.fundooContext.SaveChanges();
+                return null;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

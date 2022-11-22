@@ -96,7 +96,17 @@ namespace BusinessLayer.Service
             }
         }
 
-
+        public NotesEntity TrashNotes(long NoteID)
+        {
+            try
+            {
+                return iNotesRL.TrashNotes(NoteID);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 }

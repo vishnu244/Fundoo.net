@@ -14,6 +14,8 @@ namespace RepositoryLayer.Interface
         public IEnumerable<NotesEntity> DisplayNotes(long UserID);
         public NotesEntity PinNotes(long NoteID);
         public NotesEntity ArchiveNotes(long NoteID);
+        public NotesEntity TrashNotes(long NoteID);
+
 
 
     }
