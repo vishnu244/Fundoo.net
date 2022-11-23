@@ -241,5 +241,26 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
+
+
+        public NotesEntity Color(long UserID, long NoteID, string Color)
+        {
+            try
+            {
+                NotesEntity result = this.fundooContext.NotesTable.Where(x => x.NoteID == NoteID && x.UserId == UserID).FirstOrDefault();
+                if (result.Color != null)
+                {
+                    result.Color = Color;
+                    this.fundooContext.SaveChanges();
+                    return result;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
