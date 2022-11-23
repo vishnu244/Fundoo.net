@@ -17,10 +17,7 @@ namespace BusinessLayer.Interface
         public NotesEntity ArchiveNotes(long NoteID);
         public NotesEntity TrashNotes(long NoteID);
         public string Image(long UserID, long NoteID, IFormFile image);
-
-
-
-
+        public NotesEntity Color(long UserID, long NoteID, string Color);
 
     }
 }

@@ -145,6 +145,7 @@ namespace FundooApp.Controllers
                     });
 
                 }
+
                 else
                 {
                     return this.BadRequest(new
@@ -163,7 +164,7 @@ namespace FundooApp.Controllers
 
 
         [Authorize]
-        [HttpPost("Pin")]
+        [HttpPut("Pin")]
         public IActionResult PinNotes(long NoteID)
         {
             try
@@ -178,12 +179,20 @@ namespace FundooApp.Controllers
                     });
 
                 }
+                else if(result == null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Notes Pinned"
+                    });
+                }
                 else
                 {
                     return this.BadRequest(new
                     {
                         success = false,
-                        message = "Notes Pinned.",
+                        message = "Can not process the request.",
 
                     });
                 }
@@ -195,7 +204,7 @@ namespace FundooApp.Controllers
         }
 
         [Authorize]
-        [HttpPost("Archive")]
+        [HttpPut("Archive")]
         public IActionResult ArchiveNotes(long NoteID)
         {
             try
@@ -210,12 +219,20 @@ namespace FundooApp.Controllers
                     });
 
                 }
+                else if (result == null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Notes Archived Successfully"
+                    });
+                }
                 else
                 {
                     return this.BadRequest(new
                     {
                         success = false,
-                        message = "Notes Archived Successfully.",
+                        message = "Can not process the request.",
 
                     });
                 }
@@ -228,7 +245,7 @@ namespace FundooApp.Controllers
 
 
         [Authorize]
-        [HttpPost("Trash")]
+        [HttpPut("Trash")]
         public IActionResult TrashNotes(long NoteID)
         {
             try
@@ -243,12 +260,20 @@ namespace FundooApp.Controllers
                     });
 
                 }
+                else if (result == null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Notes moved to Trash."
+                    });
+                }
                 else
                 {
                     return this.BadRequest(new
                     {
                         success = false,
-                        message = "Notes moved to Trash.",
+                        message = "Can not process the request.",
 
                     });
                 }
@@ -282,6 +307,38 @@ namespace FundooApp.Controllers
                     {
                         success = false,
                         message = "Image is not Uploaded.",
+
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [Authorize]
+        [HttpPut("Color")]
+        public IActionResult Color(long UserID, long NoteID, string Color)
+        {
+            try
+            {
+                var result = iNotesBL.Color(UserID, NoteID, Color);
+                if (result != null)
+                {
+                    return this.Ok(new
+                    {
+                        success = true,
+                        data = "Color Added to the Notes."
+                    });
+
+                }
+                else
+                {
+                    return this.BadRequest(new
+                    {
+                        success = false,
+                        message = "Color is not Added to the Notes.",
 
                     });
                 }
