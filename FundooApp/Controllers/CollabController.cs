@@ -21,11 +21,11 @@ namespace FundooApp.Controllers
 
         [Authorize]
         [HttpPost("AddCollab")]
-        public IActionResult AddCollabEmail(CollabModel collabModel, long NoteID, long UserID)
+        public IActionResult AddCollabEmail(long NoteID, string CollabEmail)
         {
             /*long UserID = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserID").Value);
             long NoteID = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "NoteID").Value);*/
-            var result = iCollabBL.AddCollabEmail(collabModel, UserID, NoteID);
+            var result = iCollabBL.AddCollabEmail( CollabEmail, NoteID);
             if(result != null)
             {
                 return this.Ok(new
@@ -50,7 +50,7 @@ namespace FundooApp.Controllers
 
 
         [Authorize]
-        [HttpPost("DeleteCollab")]
+        [HttpDelete("DeleteCollab")]
         public IActionResult DeleteCollab(long CollabID)
         {
             try
