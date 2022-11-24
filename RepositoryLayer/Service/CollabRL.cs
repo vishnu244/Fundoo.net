@@ -23,23 +23,28 @@ namespace RepositoryLayer.Service
             this.config = config;
         }
 
-        public CollabEntity AddCollabEmail(CollabModel collabModel, long UserID, long NoteID)
+        public CollabEntity AddCollabEmail( string CollabEmail, long NoteID)
         {
             try
             {
-                CollabEntity collabEntity = new CollabEntity();
-
-                collabEntity.CollabEmail = collabModel.CollabEmail;
-                collabEntity.UserId = UserID;
-                collabEntity.NoteID = NoteID;
-
-                fundooContext.CollabTable.Add(collabEntity);
-                int result = fundooContext.SaveChanges();
-                if (result > 0)
+                var noteResult = fundooContext.CollabTable.Where(x => x.NoteID == NoteID).FirstOrDefault();
+                var EmailResult = fundooContext.CollabTable.Where(x => x.CollabEmail == CollabEmail).FirstOrDefault();
+                if (noteResult != null && EmailResult != null)
                 {
+                    CollabEntity collabEntity = new CollabEntity();
+
+                    collabEntity.NoteID = noteResult.NoteID;
+                    collabEntity.CollabEmail = EmailResult.CollabEmail;
+                    collabEntity.UserId = EmailResult.UserId;
+
+                    fundooContext.CollabTable.Add(collabEntity);
+                    fundooContext.SaveChanges();
                     return collabEntity;
                 }
-                return null;
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {

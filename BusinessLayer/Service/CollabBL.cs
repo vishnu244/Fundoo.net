@@ -18,11 +18,11 @@ namespace BusinessLayer.Service
         {
             this.iCollabRL = iCollabRL;
         }
-        public CollabEntity AddCollabEmail(CollabModel collabModel, long UserID, long NoteID)
+        public CollabEntity AddCollabEmail(string CollabEmail, long NoteID)
         {
             try
             {
-                return iCollabRL.AddCollabEmail(collabModel, UserID, NoteID);
+                return iCollabRL.AddCollabEmail( CollabEmail, NoteID);
 
             }
             catch (Exception)
