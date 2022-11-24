@@ -50,7 +50,7 @@ namespace FundooApp.Controllers
 
 
         [Authorize]
-        [HttpPost("DeleteCollab")]
+        [HttpDelete("DeleteCollab")]
         public IActionResult DeleteCollab(long CollabID)
         {
             try
