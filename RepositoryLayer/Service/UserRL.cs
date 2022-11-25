@@ -15,6 +15,7 @@ namespace RepositoryLayer.Service
 {
     public class UserRL : IUserRL
     {
+        public static string Key = "abcd@efgh$ijk@";
         FundooContext fundooContext;
 
         private readonly IConfiguration config;
@@ -35,7 +36,7 @@ namespace RepositoryLayer.Service
                 userEntity.FirstName = User.FirstName;
                 userEntity.LastName = User.LastName;
                 userEntity.Email = User.Email;
-                userEntity.Password = User.Password;
+                userEntity.Password = EncryptPass(User.Password);
 
                 fundooContext.UserTable.Add(userEntity);
                 int result = fundooContext.SaveChanges();
@@ -62,7 +63,7 @@ namespace RepositoryLayer.Service
             try
             {
 
-                var logindata = fundooContext.UserTable.FirstOrDefault( x => x.Email == loginModel.Email && x.Password == loginModel.Password );
+                var logindata = fundooContext.UserTable.FirstOrDefault( x => x.Email == loginModel.Email && x.Password == DecryptPass(loginModel.Password));
                 if (logindata != null)
                 {
                     /*loginModel.Email = logindata.Email;
@@ -145,6 +146,45 @@ namespace RepositoryLayer.Service
                 {
                     return false;
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public static string EncryptPass(string password)
+        {
+            try
+            {
+                if(string.IsNullOrEmpty(password))
+                {
+                    return "";
+                }
+                password += Key;
+                var passwordBytes = Encoding.UTF8.GetBytes(password);
+                return Convert.ToBase64String(passwordBytes);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static string DecryptPass(string password)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(password))
+                {
+                    return "";
+                }
+                password += Key;
+                var passwordBytes = Encoding.UTF8.GetBytes(password);
+                return Convert.ToBase64String(passwordBytes);
             }
             catch (Exception)
             {
