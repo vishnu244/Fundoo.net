@@ -30,6 +30,8 @@ namespace FundooApp.Controllers
         private readonly IDistributedCache distributedCache;
 
         private readonly FundooContext fundooContext;
+        NLog nlog = new NLog();
+
 
         public NotesController(INotesBL iNotesBL, IMemoryCache memoryCache, IDistributedCache distributedCache, FundooContext fundooContext)
         {
@@ -49,6 +51,7 @@ namespace FundooApp.Controllers
                 var result = iNotesBL.AddNotes(notesModel, UserID);
                 if (result != null)
                 {
+                    nlog.LogInfo("Notes Added Successfully");
                     return this.Ok(new
                     {
                         success = true,
@@ -85,6 +88,7 @@ namespace FundooApp.Controllers
                 var result = iNotesBL.UpdateNotes(notesModel, NoteID);
                 if (result != null)
                 {
+                    nlog.LogInfo("Notes Updated Successfully");
                     return this.Ok(new
                     {
                         success = true,
@@ -95,6 +99,7 @@ namespace FundooApp.Controllers
                 }
                 else
                 {
+                    nlog.LogInfo("Unable to Update Notes");
                     return this.BadRequest(new
                     {
                         success = false,
@@ -121,6 +126,7 @@ namespace FundooApp.Controllers
                 /*var result = iNotesBL.DeleteNotes(NoteID);*/
                 if (iNotesBL.DeleteNotes(NoteID))
                 {
+                    nlog.LogInfo("Notes Deleted Successfully");
                     return this.Ok(new
                     {
                         success = true,
@@ -157,6 +163,7 @@ namespace FundooApp.Controllers
                 var result = iNotesBL.DisplayNotes(UserID);
                 if (result != null)
                 {
+                    nlog.LogInfo("Notes Displayed");
                     return this.Ok(new
                     {
                         success = true,
@@ -188,6 +195,7 @@ namespace FundooApp.Controllers
         {
             try
             {
+                nlog.LogInfo("Notes UnPinned");
                 var result = iNotesBL.PinNotes(NoteID);
                 if (result != null)
                 {
@@ -200,6 +208,7 @@ namespace FundooApp.Controllers
                 }
                 else if(result == null)
                 {
+                    nlog.LogInfo("Notes Pinned");
                     return this.Ok(new
                     {
                         success = true,
@@ -228,6 +237,7 @@ namespace FundooApp.Controllers
         {
             try
             {
+                nlog.LogInfo("Notes UnArchived Successfully");
                 var result = iNotesBL.ArchiveNotes(NoteID);
                 if (result != null)
                 {
@@ -240,6 +250,7 @@ namespace FundooApp.Controllers
                 }
                 else if (result == null)
                 {
+                    nlog.LogInfo("Notes Archived Successfully");
                     return this.Ok(new
                     {
                         success = true,
@@ -269,6 +280,7 @@ namespace FundooApp.Controllers
         {
             try
             {
+                nlog.LogInfo("Notes Restored from Trash");
                 var result = iNotesBL.TrashNotes(NoteID);
                 if (result != null)
                 {
@@ -281,6 +293,7 @@ namespace FundooApp.Controllers
                 }
                 else if (result == null)
                 {
+                    nlog.LogInfo("Notes moved to Trash.");
                     return this.Ok(new
                     {
                         success = true,
@@ -310,6 +323,7 @@ namespace FundooApp.Controllers
         {
             try
             {
+                nlog.LogInfo("Image Uploaded");
                 var result = iNotesBL.Image(UserID, NoteID, image);
                 if (result != null)
                 {
@@ -342,6 +356,7 @@ namespace FundooApp.Controllers
         {
             try
             {
+                nlog.LogInfo("Color Added to the Notes.");
                 var result = iNotesBL.Color(UserID, NoteID, Color);
                 if (result != null)
                 {

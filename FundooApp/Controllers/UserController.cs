@@ -12,7 +12,8 @@ namespace FundooApp.Controllers
     public class UserController : ControllerBase
     {
         IUserBL iuserBL;
-
+        
+        NLog nlog = new NLog();
         public UserController(IUserBL iuserBL)
         {
             this.iuserBL = iuserBL;
@@ -27,6 +28,7 @@ namespace FundooApp.Controllers
                 var result = iuserBL.Registration(User1);
                 if (result != null)
                 {
+                    nlog.LogInfo("Registration Successfull");
                     return this.Ok(new
                     {
                         success = true,
@@ -38,6 +40,7 @@ namespace FundooApp.Controllers
                 }
                 else
                 {
+                    nlog.LogInfo("Registration UnSuccessfull");
                     return this.BadRequest(new
                     {
                         success = false,
@@ -63,6 +66,7 @@ namespace FundooApp.Controllers
                 var result = iuserBL.Login(loginModel);
                 if (result != null)
                 {
+                    nlog.LogInfo("Login Successfull");
                     return this.Ok(new
                     {
                         success = true,
@@ -70,10 +74,11 @@ namespace FundooApp.Controllers
                         data = result
                     }
                         );
-
+                    
                 }
                 else
                 {
+                    nlog.LogInfo("Login Unsuccessfull");
                     return this.BadRequest(new
                     {
                         success = false,
@@ -99,6 +104,7 @@ namespace FundooApp.Controllers
                 var result = iuserBL.ForgetPassword(email);
                 if (result != null)
                 {
+                    nlog.LogInfo("Token sent to you MailID");
                     return this.Ok(new
                     {
                         success = true,
@@ -109,6 +115,7 @@ namespace FundooApp.Controllers
                 }
                 else
                 {
+                    nlog.LogInfo("Password Request Failed");
                     return this.BadRequest(new
                     {
                         success = false,
@@ -136,6 +143,8 @@ namespace FundooApp.Controllers
                 var result = iuserBL.ResetPassword(passwordReset, Password, ConfirmPassword);
                 if (result != null)
                 {
+                    nlog.LogInfo("Password Reset Successfull.");
+
                     return this.Ok(new
                     {
                         success = true,
@@ -146,6 +155,7 @@ namespace FundooApp.Controllers
                 }
                 else
                 {
+                    nlog.LogInfo("Password Reset Failed, Please check the details.");
                     return this.BadRequest(new
                     {
                         success = false,

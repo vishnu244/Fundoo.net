@@ -1,0 +1,3 @@
+﻿2022-11-28 15:15:38.0126|INFO|FundooApp.NLog|Notes Displayed
+2022-11-28 15:17:16.2413|INFO|FundooApp.NLog|Registration Successfull
+2022-11-28 15:18:49.2963|INFO|FundooApp.NLog|Login Successfull

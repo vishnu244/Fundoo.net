@@ -18,6 +18,7 @@ namespace FundooApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class LableController : ControllerBase
     {
         ILableBL iLableBL;
@@ -26,6 +27,9 @@ namespace FundooApp.Controllers
         private readonly IDistributedCache distributedCache;
 
         private readonly FundooContext fundooContext;
+
+        NLog nlog = new NLog();
+
 
         public LableController(ILableBL iLableBL, IMemoryCache memoryCache, IDistributedCache distributedCache, FundooContext fundooContext)
         {
@@ -44,6 +48,8 @@ namespace FundooApp.Controllers
             var dataresult = iLableBL.AddLable(NoteID, LableName, UserID);
             if (dataresult != null )
             {
+                nlog.LogInfo("Lable Added");
+
                 return this.Ok(new
                 {
                     success = true,
@@ -74,6 +80,8 @@ namespace FundooApp.Controllers
             {
                 if (iLableBL.DeleteLable(LableID))
                 {
+                    nlog.LogInfo("Lable Deleted Successfully");
+
                     return this.Ok(new
                     {
                         success = true,
@@ -111,6 +119,8 @@ namespace FundooApp.Controllers
                 var dataresult = iLableBL.DisplayLable(LableID);
                 if (dataresult != null)
                 {
+                    nlog.LogInfo("The Created Lable are.");
+
                     return this.Ok(new
                     {
                         success = true,
@@ -145,6 +155,7 @@ namespace FundooApp.Controllers
                 var result = iLableBL.UpdateLable(lableModel, LableID);
                 if (result != null)
                 {
+                    nlog.LogInfo("Lable Updated Successfully");
                     return this.Ok(new
                     {
                         success = true,
@@ -155,6 +166,7 @@ namespace FundooApp.Controllers
                 }
                 else
                 {
+                    nlog.LogInfo("Unable to Update Lable");
                     return this.BadRequest(new
                     {
                         success = false,

@@ -26,6 +26,8 @@ namespace FundooApp.Controllers
         private readonly IDistributedCache distributedCache;
 
         private readonly FundooContext fundooContext;
+        NLog nlog = new NLog();
+
 
         public CollabController(ICollabBL iCollabBL, IMemoryCache memoryCache, IDistributedCache distributedCache, FundooContext fundooContext)
         {
@@ -44,6 +46,8 @@ namespace FundooApp.Controllers
             var result = iCollabBL.AddCollabEmail( CollabEmail, NoteID);
             if(result != null)
             {
+                nlog.LogInfo("Mail Collaborated");
+
                 return this.Ok(new
                 {
                     success = true,
@@ -73,6 +77,8 @@ namespace FundooApp.Controllers
             {
                 if (iCollabBL.DeleteCollab(CollabID))
                 {
+                    nlog.LogInfo("Collabarated Mail Deleted Successfully");
+
                     return this.Ok(new
                     {
                         success = true,
@@ -109,6 +115,7 @@ namespace FundooApp.Controllers
                 var result = iCollabBL.DisplayCollab(CollabID);
                 if (result != null)
                 {
+                    nlog.LogInfo("The Collabarated mails are.");
                     return this.Ok(new
                     {
                         success = true,
