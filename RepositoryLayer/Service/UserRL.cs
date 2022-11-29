@@ -155,7 +155,7 @@ namespace RepositoryLayer.Service
         }
 
 
-        public static string EncryptPass(string password)
+        public string EncryptPass(string password)
         {
             try
             {
@@ -174,7 +174,7 @@ namespace RepositoryLayer.Service
             }
         }
 
-        public static string DecryptPass(string password)
+        public string DecryptPass(string password)
         {
             try
             {

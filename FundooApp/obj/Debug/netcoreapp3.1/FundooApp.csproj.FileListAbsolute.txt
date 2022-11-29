@@ -263,3 +263,5 @@ C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\Pipelines
 C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
 C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
 C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\NLog.config
+C:\Users\Admin\Desktop\FundooBackend\FundooApp\bin\Debug\netcoreapp3.1\NLog.dll

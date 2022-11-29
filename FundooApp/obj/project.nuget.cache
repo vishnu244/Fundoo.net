@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G7A6AXFeejhxHO+n3ghQanQUJjNea5818ZPixWOtoT3oDKgIHXPnEmqXpjvw96mRlugsAobFYmXXjg4zbLn8+w==",
+  "dgSpecHash": "lCzfKtrd0LHZHZEbQl8bEdXbL+gdOnkd8njn5DfZ3wQ1yLhvthkN2ciZ1TBAr+gee4qJHnx8PO2WecIez7MIrQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\FundooBackend\\FundooApp\\FundooApp.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,9 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\nlog\\5.1.0\\nlog.5.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\nlog.config\\4.7.15\\nlog.config.4.7.15.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\nlog.schema\\4.7.15\\nlog.schema.4.7.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\pipelines.sockets.unofficial\\2.0.17\\pipelines.sockets.unofficial.2.0.17.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
